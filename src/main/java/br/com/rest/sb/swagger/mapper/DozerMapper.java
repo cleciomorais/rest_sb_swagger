@@ -1,4 +1,4 @@
-package br.com.rest.sb.mapper;
+package br.com.rest.sb.swagger.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class DozerMapper {
 	public static <O,D> List<D> parseListObjects(List<O> lstObjOrigem, Class<D> objDestino) {
 		List<D> objs = new ArrayList<D>();
 		for (Object o : lstObjOrigem) {
-			objs.add(mapper.map(o, objDestino));
+			objs.add(parseObject(o, objDestino));
 		}
 		return objs;
 	}

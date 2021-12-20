@@ -1,9 +1,9 @@
-package br.com.rest.sb.repository;
+package br.com.rest.sb.swagger.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.rest.sb.model.Livro;
+import br.com.rest.sb.swagger.model.Livro;
 
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Long>{

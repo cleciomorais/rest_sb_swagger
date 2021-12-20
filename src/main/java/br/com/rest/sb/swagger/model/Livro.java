@@ -1,4 +1,4 @@
-package br.com.rest.sb.model;
+package br.com.rest.sb.swagger.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity()
 @Table(name = "LIVROS")
 public class Livro implements Serializable {
 
