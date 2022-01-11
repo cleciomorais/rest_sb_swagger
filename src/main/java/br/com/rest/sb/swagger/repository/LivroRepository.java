@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.com.rest.sb.swagger.model.Livro;
 
 @Repository
-public interface LivroRepository extends JpaRepository<Livro, Long>{
+public interface LivroRepository<T> extends JpaRepository<Livro, Long>{
 
 }
