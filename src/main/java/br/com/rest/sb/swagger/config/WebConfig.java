@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import br.com.rest.sb.swagger.converter.YamlJackson2HttpMessageConverter;;
@@ -75,5 +76,10 @@ public class WebConfig implements WebMvcConfigurer{
 	public void extendMessageConverters( List<HttpMessageConverter<?>> converters) {
 		converters.add(new YamlJackson2HttpMessageConverter());
 		
+	}
+	
+	public void addCorsMapping(CorsRegistry registry) {
+		registry.addMapping("/**") //habilita cross domain para todos as origens; - funciona bem para POST, GET, PUT, DELETE; -para patch e options não funciona
+		.allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT"); //garante que funcione o cross origin para todos esses tipos de chamada 
 	}
 }
