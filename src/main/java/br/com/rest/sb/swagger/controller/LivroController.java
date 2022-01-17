@@ -19,7 +19,11 @@ import br.com.rest.sb.swagger.model.vo.v1.LivroVO;
 import br.com.rest.sb.swagger.service.LivroService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-
+	
+//@CrossOrigin //habilita a chamada da API por qualquer url, para qualquer método do endpoint
+//@CrossOrigin(origins = {"https://www.google.com"}) //habilita a chamada da API apenas pela url especificada, para qualquer método do endpoint
+//@CrossOrigin(origins = {"http://localhost:8080", "https://www.google.com/"}) //habilita a chamada da API para as urls especificadas, para qualquer método do endpoint
+	//localhost está sempre permitido, independente da configuração do @CrossOrigin
 @Api(value = "Livro Endpoint", description = "Endpoint with paths to maintain a Book treatment options", tags = {"livro-endpoint"})
 @RestController
 @RequestMapping("/livro/v1")
@@ -44,6 +48,9 @@ public class LivroController {
 		return livro;
 	}
 	
+//	@CrossOrigin(origins = {"https://www.google.com/"}) //mesma funcionalidade já documentada acima, com validade somente para esse método
+														//acumula com a configuração especificada na classe
+														//localhost sempre permitido
 	@ApiOperation (value = "Path to find all Books recorded in database")
 	@GetMapping(value = "/all", produces = {"application/json", "application/xml", "application/x-yaml"})
 	public List<LivroVO> findAll() {
